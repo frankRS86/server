@@ -18,6 +18,7 @@ public class Test3 {
 	private static final String template = "Hello second package, %s!";
 	private final AtomicLong counter = new AtomicLong();
 
+	
 	@Autowired
 	TestService testService;
 	
