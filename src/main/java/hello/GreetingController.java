@@ -24,10 +24,10 @@ public class GreetingController {
 		
 		System.out.println("request accepted");
 		
-		User u = new User();
-		u.setName("first db user");
-		
-		iUserPersistence.save(u);
+//		User u = new User();
+//		u.setName("first db user");
+//		
+//		iUserPersistence.save(u);
 		
 		return new Greeting(counter.incrementAndGet(), String.format(template, name));
 	}

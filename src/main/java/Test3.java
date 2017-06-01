@@ -29,7 +29,7 @@ public class Test3 {
 	public Greeting second(@RequestParam(value = "name", defaultValue = "World") String name) {
 		
 		String text = testService.getString();
-		
+				
 		Iterable<User> res = iUserPersistence.findAll();
 	    StringBuffer b = new  StringBuffer();
 		

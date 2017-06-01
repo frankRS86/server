@@ -17,6 +17,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import main.java.persistence.IUserPersistence;
+import main.java.persistence.User;
 import main.java.requests.FileDownloader;
 
 @Component
@@ -32,10 +34,18 @@ public class RefreshScheduler {
     @Autowired
     JobLauncher jobLauncher;
     
-    @Scheduled(fixedRate = 5000)
+    @Autowired
+    IUserPersistence iUserPersistence;
+    
+    @Scheduled(fixedRate = 500000)
     public void reportCurrentTime() 
     {
         log.info("The time is now {}", dateFormat.format(new Date()));
+        
+        User u = new User();
+        u.setName("frank");
+        
+        iUserPersistence.save(u);
         
         Job bean = (Job) applicationContext.getBean("importUserJob");
         
